@@ -33,11 +33,12 @@ async function css(text,base) {
  }
  return text;
 }
-const pages=[];
+const pages=[];const hashes={};
 for (const route of routes) {
  const url=`${origin}/${route}${route?'/':''}`;
  let raw;try {raw=get(url).toString();}catch {console.log('Skipping unavailable route:',route);continue;}
  await writeFile(`migration/${route.replaceAll('/','-')||'home'}.source.html`,raw);
+ const baseline=load(raw);baseline('script,noscript').remove();hashes[route.replaceAll('/','-')||'home']=createHash('sha256').update(baseline('#content').text().replace(/\s+/g,' ').trim()).digest('hex');
  const $=load(raw);const key=route.replaceAll('/','-')||'home';
  // Keep SEO, CSS and original block markup; remove WordPress service discovery and trackers.
  $('link[href*="c0.wp.com/p/jetpack"]').remove();
@@ -72,6 +73,7 @@ for (const route of routes) {
  await writeFile(`src/content/pages/${key}.footer.html`,$('#colophon').toString());
  pages.push({key,route,title:page.title});console.log(`Imported /${route}: ${assets.size} assets`);
 }
+await writeFile('migration/content-hashes.json',JSON.stringify(hashes,null,2));
 await writeFile('src/content/routes.json',JSON.stringify(pages,null,2));
 await writeFile('migration/assets.json',JSON.stringify(Object.fromEntries(assets),null,2));
 console.log(`Complete: ${pages.length} pages, ${assets.size} local assets`);
