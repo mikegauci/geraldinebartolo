@@ -1,0 +1,16 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import routes from '../content/routes.json';
+export function getStaticPaths() {
+  return routes.map(page => ({ params: { slug: page.route || undefined }, props: { pageKey: page.key } }));
+}
+const { pageKey } = Astro.props;
+const pages = import.meta.glob('../content/pages/*.json', { eager: true, import: 'default' });
+const fragments = import.meta.glob('../content/pages/*.html', { eager: true, query: '?raw', import: 'default' });
+const page = pages[`../content/pages/${pageKey}.json`];
+const header = fragments[`../content/pages/${pageKey}.header.html`];
+const footer = fragments[`../content/pages/${pageKey}.footer.html`];
+---
+<SiteLayout page={page} header={header} footer={footer}>
+  <Fragment set:html={page.content} />
+</SiteLayout>

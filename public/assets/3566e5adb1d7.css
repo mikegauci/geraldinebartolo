@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("/assets/37a6858ea370.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: fallback;
+  src: url("/assets/864a17dc1871.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: fallback;
+  src: url("/assets/22d43f06832a.ttf") format('truetype');
+}

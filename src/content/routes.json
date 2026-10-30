@@ -1,0 +1,42 @@
+[
+  {
+    "key": "home",
+    "route": "",
+    "title": "Geraldine Bartolo - Freelance Marketing Consultant Email  Email "
+  },
+  {
+    "key": "services",
+    "route": "services",
+    "title": "Services - Geraldine Bartolo Email  Email "
+  },
+  {
+    "key": "experience-and-projects",
+    "route": "experience-and-projects",
+    "title": "Experience and Projects - Geraldine Bartolo Email  Email "
+  },
+  {
+    "key": "hello-world",
+    "route": "hello-world",
+    "title": "Hello world! - Geraldine Bartolo Email  Email "
+  },
+  {
+    "key": "portfolio",
+    "route": "portfolio",
+    "title": "Projects Archive - Geraldine Bartolo Email  Email "
+  },
+  {
+    "key": "testimonial",
+    "route": "testimonial",
+    "title": "Testimonials Archive - Geraldine Bartolo Email  Email "
+  },
+  {
+    "key": "category-uncategorized",
+    "route": "category/uncategorized",
+    "title": "Uncategorized Archives - Geraldine Bartolo Email  Email "
+  },
+  {
+    "key": "author-admin",
+    "route": "author/admin",
+    "title": "admin, Author at Geraldine Bartolo Email  Email "
+  }
+]
